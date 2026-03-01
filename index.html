@@ -20,7 +20,6 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Cairo',sans-serif; background:var(--deep); color:var(--cream); overflow-x:hidden; }
 
-/* ── STARS ── */
 .stars-bg { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
 .stars-bg::before {
   content:''; position:absolute; inset:0;
@@ -35,7 +34,6 @@ body { font-family:'Cairo',sans-serif; background:var(--deep); color:var(--cream
 
 .page-wrap { position:relative; z-index:1; }
 
-/* ── HEADER ── */
 header { text-align:center; padding:50px 20px 0; }
 .moon-lantern { display:flex; justify-content:center; align-items:center; gap:30px; margin-bottom:20px; animation:float 4s ease-in-out infinite; }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
@@ -46,26 +44,21 @@ header { text-align:center; padding:50px 20px 0; }
 .site-subtitle { font-size:clamp(1rem,3vw,1.4rem); color:var(--gold-light); font-weight:300; letter-spacing:2px; margin-bottom:6px; }
 .hijri-date { display:inline-block; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); color:var(--deep); font-weight:700; font-size:1rem; padding:4px 20px; border-radius:50px; margin-bottom:30px; }
 
-/* ── ORNAMENT ── */
 .ornament { display:flex; align-items:center; justify-content:center; gap:15px; margin:10px auto 35px; max-width:500px; }
 .ornament-line { flex:1; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); }
 .ornament-star { color:var(--gold); font-size:1.2rem; }
 
-/* ── IFTAR SCENE ── */
 .iftar-scene { display:flex; justify-content:center; margin:0 auto 35px; max-width:700px; padding:0 20px; }
 .iftar-svg-wrap { width:100%; max-width:600px; }
 
-/* ── CONTAINER ── */
 .container { max-width:820px; margin:0 auto; padding:0 20px 60px; }
 
-/* ── WELCOME ── */
 .welcome-card { background:linear-gradient(135deg,rgba(26,107,107,.2),rgba(201,168,76,.1)); border:1px solid rgba(201,168,76,.3); border-radius:20px; padding:28px; text-align:center; margin-bottom:28px; position:relative; overflow:hidden; }
 .welcome-card::before { content:'﷽'; position:absolute; top:-10px; left:50%; transform:translateX(-50%); font-size:4rem; color:rgba(201,168,76,.05); white-space:nowrap; }
 .welcome-card h2 { font-size:1.5rem; font-weight:700; color:var(--gold-light); margin-bottom:10px; }
 .welcome-card p { font-size:1rem; line-height:1.8; color:rgba(253,246,227,.85); }
 .alex-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(201,168,76,.15); border:1px solid rgba(201,168,76,.4); padding:6px 16px; border-radius:50px; font-size:.9rem; color:var(--gold-light); margin-top:14px; }
 
-/* ── MEAL SECTION ── */
 .meal-card { background:linear-gradient(135deg,rgba(212,117,74,.15),rgba(201,168,76,.08)); border:1px solid rgba(212,117,74,.4); border-radius:22px; padding:32px 28px; margin-bottom:28px; position:relative; overflow:hidden; }
 .meal-card::before { content:'🍽️'; position:absolute; top:-10px; left:-10px; font-size:8rem; opacity:.05; transform:rotate(-15deg); }
 .meal-header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
@@ -83,7 +76,20 @@ header { text-align:center; padding:50px 20px 0; }
 .meal-note { background:rgba(26,107,107,.2); border:1px solid rgba(26,107,107,.4); border-radius:10px; padding:10px 16px; font-size:.85rem; color:rgba(253,246,227,.75); text-align:center; }
 .meal-note strong { color:var(--gold-light); }
 
-/* ── RULES SECTION ── */
+/* ── INSTAPAY BUTTON ── */
+.instapay-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  background:linear-gradient(135deg,#0a5c44,#0e8a64);
+  color:white; font-family:'Cairo',sans-serif; font-size:1rem; font-weight:700;
+  padding:13px 28px; border-radius:50px; border:none; cursor:pointer;
+  text-decoration:none; margin-top:14px;
+  box-shadow:0 4px 20px rgba(10,92,68,.4);
+  transition:all .3s;
+}
+.instapay-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(10,92,68,.6); }
+.instapay-btn-icon { font-size:1.3rem; }
+
+/* ── RULES ── */
 .rules-card { background:linear-gradient(135deg,rgba(192,57,43,.1),rgba(139,105,20,.08)); border:1px solid rgba(192,57,43,.35); border-radius:22px; padding:32px 28px; margin-bottom:28px; }
 .rules-header { display:flex; align-items:center; gap:14px; margin-bottom:22px; }
 .rules-icon-wrap { width:54px; height:54px; background:linear-gradient(135deg,#8B1A1A,#C0392B); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.7rem; flex-shrink:0; }
@@ -110,7 +116,6 @@ input[type=text] { width:100%; padding:13px 17px; background:rgba(255,255,255,.0
 input[type=text]:focus { border-color:var(--gold); background:rgba(201,168,76,.08); box-shadow:0 0 0 4px rgba(201,168,76,.1); }
 input[type=text]::placeholder { color:rgba(253,246,227,.3); }
 
-/* Payment */
 .payment-options { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
 .payment-option { position:relative; cursor:pointer; }
 .payment-option input[type=radio] { position:absolute; opacity:0; width:0; }
@@ -119,20 +124,55 @@ input[type=text]::placeholder { color:rgba(253,246,227,.3); }
 .payment-icon { font-size:2rem; }
 .payment-name { font-size:.95rem; font-weight:700; color:var(--cream); }
 .payment-detail { font-size:.75rem; color:rgba(253,246,227,.5); word-break:break-all; }
-.instapay-info { margin-top:11px; padding:11px 15px; background:rgba(26,107,107,.2); border:1px solid rgba(26,107,107,.5); border-radius:10px; font-size:.85rem; color:rgba(253,246,227,.8); display:none; direction:ltr; text-align:center; }
-.instapay-info.visible { display:block; }
-.instapay-account { font-weight:700; color:var(--gold-light); font-size:.95rem; }
 
-/* Checkbox agree */
+/* ── INSTAPAY INFO BOX (updated) ── */
+.instapay-info { margin-top:11px; padding:14px 16px; background:rgba(10,92,68,.2); border:1px solid rgba(10,150,100,.5); border-radius:12px; font-size:.88rem; color:rgba(253,246,227,.85); display:none; text-align:center; }
+.instapay-info.visible { display:block; }
+.instapay-account { font-weight:900; color:#4ade80; font-size:1.05rem; direction:ltr; display:inline-block; letter-spacing:.5px; }
+.instapay-pay-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,#0a5c44,#0e8a64);
+  color:white; font-family:'Cairo',sans-serif; font-size:.92rem; font-weight:700;
+  padding:10px 22px; border-radius:50px; text-decoration:none; margin-top:10px;
+  box-shadow:0 3px 14px rgba(10,92,68,.4); transition:all .3s; border:none; cursor:pointer;
+}
+.instapay-pay-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(10,92,68,.6); }
+
+/* ── NAME NOTE CHECKBOX ── */
+.name-note-box {
+  margin-top:12px; padding:14px 16px;
+  background:rgba(201,168,76,.08); border:1.5px solid rgba(201,168,76,.4);
+  border-radius:11px; display:none;
+}
+.name-note-box.visible { display:block; }
+.name-note-text {
+  font-size:.9rem; color:var(--cream); line-height:1.6; margin-bottom:12px; text-align:center;
+}
+.name-note-text strong {
+  color:var(--gold-light); font-size:1rem; font-weight:900;
+  background:rgba(201,168,76,.15); padding:2px 10px; border-radius:6px;
+  display:inline-block; margin-top:4px;
+}
+.name-confirm-row { display:flex; align-items:center; gap:10px; background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.3); border-radius:9px; padding:10px 13px; }
+.name-confirm-row input[type=checkbox] { width:20px; height:20px; accent-color:var(--gold); cursor:pointer; flex-shrink:0; }
+.name-confirm-row label { font-size:.85rem; color:rgba(253,246,227,.85); cursor:pointer; margin-bottom:0; font-weight:600; }
+
+/* ── AGREE ROW ── */
 .agree-row { display:flex; align-items:flex-start; gap:12px; background:rgba(192,57,43,.07); border:1px solid rgba(192,57,43,.25); border-radius:11px; padding:14px; }
 .agree-row input[type=checkbox] { width:20px; height:20px; margin-top:2px; accent-color:var(--gold); cursor:pointer; flex-shrink:0; }
 .agree-row label { font-size:.88rem; color:rgba(253,246,227,.82); cursor:pointer; line-height:1.5; margin-bottom:0; font-weight:400; }
 .agree-row label strong { color:#F1948A; }
+/* clickable rules link inside checkbox label */
+.rules-link {
+  color:var(--gold-light); font-weight:700; text-decoration:underline;
+  text-underline-offset:3px; cursor:pointer;
+  transition:color .2s;
+}
+.rules-link:hover { color:var(--gold); }
 
 .error-msg { display:none; color:#ff8080; font-size:.82rem; margin-top:5px; }
 .error-msg.visible { display:block; }
 
-/* Submit */
 .submit-btn { width:100%; padding:15px; background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light)); border:none; border-radius:13px; color:var(--deep); font-family:'Cairo',sans-serif; font-size:1.05rem; font-weight:800; cursor:pointer; transition:all .3s; position:relative; overflow:hidden; margin-top:8px; }
 .submit-btn:disabled { opacity:.6; cursor:not-allowed; }
 .submit-btn::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%); transform:translateX(-100%); transition:transform .5s; }
@@ -141,7 +181,6 @@ input[type=text]::placeholder { color:rgba(253,246,227,.3); }
 .spinner { display:inline-block; width:16px; height:16px; border:3px solid rgba(13,27,42,.3); border-top-color:var(--deep); border-radius:50%; animation:spin .8s linear infinite; vertical-align:middle; margin-left:7px; }
 @keyframes spin { to{transform:rotate(360deg)} }
 
-/* Success */
 .success-msg { display:none; text-align:center; padding:32px 22px; background:rgba(26,107,107,.15); border:1px solid rgba(26,107,107,.5); border-radius:15px; margin-top:18px; }
 .success-msg.visible { display:block; }
 .success-msg .check { font-size:3.2rem; margin-bottom:10px; }
@@ -153,22 +192,24 @@ input[type=text]::placeholder { color:rgba(253,246,227,.3); }
 .api-error { display:none; background:rgba(180,30,30,.15); border:1px solid rgba(220,80,80,.4); border-radius:10px; padding:11px 15px; color:#ff9999; font-size:.88rem; text-align:center; margin-top:12px; }
 .api-error.visible { display:block; }
 
-/* ── TEAM ── */
 .section-heading { text-align:center; font-size:1.35rem; font-weight:700; color:var(--gold); margin-bottom:5px; }
 .section-sub { text-align:center; color:rgba(253,246,227,.5); font-size:.88rem; margin-bottom:22px; }
 .team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; }
 .team-card { background:rgba(255,255,255,.03); border:1px solid rgba(201,168,76,.2); border-radius:15px; padding:22px 16px; text-align:center; transition:all .3s; }
 .team-card:hover { background:rgba(201,168,76,.07); border-color:rgba(201,168,76,.4); transform:translateY(-4px); }
-.team-avatar { width:56px; height:56px; border-radius:50%; border:2px solid var(--gold-dark); display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-size:1.5rem; background:rgba(201,168,76,.1); }
+.team-avatar { width:110px; height:110px; border-radius:50%; border:3px solid var(--gold-dark); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:1.5rem; background:rgba(201,168,76,.1); overflow:hidden; box-shadow:0 0 0 5px rgba(201,168,76,.1); }
+.team-avatar img { width:100%; height:100%; object-fit:cover; border-radius:50%; display:block; }
+.team-avatar .avatar-placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%; background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(26,107,107,.2)); color:rgba(253,246,227,.35); gap:4px; }
+.team-avatar .avatar-placeholder svg { width:38px; height:38px; opacity:.5; }
+.team-avatar .avatar-placeholder span { font-size:.6rem; font-weight:600; letter-spacing:.5px; }
 .team-name { font-size:1rem; font-weight:700; color:var(--gold-light); margin-bottom:5px; }
 .team-role { font-size:.78rem; color:rgba(253,246,227,.55); line-height:1.5; }
 .team-badge { display:inline-block; background:rgba(201,168,76,.15); border:1px solid rgba(201,168,76,.3); color:var(--gold); font-size:.7rem; font-weight:600; padding:2px 10px; border-radius:50px; margin-top:7px; }
 
-/* ── FOOTER ── */
 footer { text-align:center; padding:28px 20px; border-top:1px solid rgba(201,168,76,.15); color:rgba(253,246,227,.4); font-size:.83rem; }
 footer .footer-gold { color:var(--gold); font-weight:600; }
 
-/* ── ADMIN PANEL ── */
+/* ── ADMIN ── */
 #adminPanel { display:none; position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:1000; overflow-y:auto; padding:30px 20px; }
 .admin-wrap { max-width:900px; margin:0 auto; }
 .admin-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; flex-wrap:wrap; gap:12px; }
@@ -193,7 +234,6 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
 .admin-empty { text-align:center; padding:40px; color:rgba(253,246,227,.4); font-size:1rem; }
 .admin-loading { text-align:center; padding:40px; color:var(--gold); }
 
-/* Token prompt */
 #tokenPrompt { display:none; position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:999; display:flex; align-items:center; justify-content:center; }
 #tokenPrompt.hidden { display:none!important; }
 .token-box { background:var(--navy); border:1px solid rgba(201,168,76,.3); border-radius:18px; padding:36px 30px; max-width:380px; width:90%; text-align:center; }
@@ -217,7 +257,6 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
 </head>
 <body>
 
-<!-- Stars -->
 <div class="stars-bg" id="starsEl"></div>
 <div class="geo-overlay"></div>
 
@@ -257,8 +296,6 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
 </div>
 
 <div class="page-wrap">
-
-  <!-- HEADER -->
   <header>
     <div class="moon-lantern">
       <svg class="lantern-svg" viewBox="0 0 60 90" fill="none">
@@ -297,7 +334,6 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
     </div>
   </header>
 
-  <!-- IFTAR ILLUSTRATION -->
   <div class="iftar-scene">
     <svg class="iftar-svg-wrap" viewBox="0 0 600 200" fill="none">
       <defs>
@@ -344,14 +380,13 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
 
   <div class="container">
 
-    <!-- Welcome -->
     <div class="welcome-card">
       <h2>أهلاً وسهلاً بكم في شقة سيدي بشر 🕌</h2>
       <p>في رحاب الشهر الكريم، ندعوكم للتسجيل في شقتنا المباركة بسيدي بشر — الإسكندرية.<br>يسعدنا استقبالكم ومشاركتكم أجواء الشهر الفضيل.</p>
       <span class="alex-badge">23 ش محمود البنا متفرع من الصاغ محمد عبدالسلام - سيدي بشر بحري</span>
     </div>
 
-    <!-- Meal Section -->
+    <!-- Meal -->
     <div class="meal-card">
       <div class="meal-header">
         <div class="meal-icon-wrap">🍽️</div>
@@ -376,8 +411,8 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
       <div class="meal-note">🌙 <strong>ملاحظة:</strong> السعر يشمل الوجبة الكاملة + إنترنت مجاني على مدار اليوم</div>
     </div>
 
-    <!-- ═══ RULES SECTION ═══ -->
-    <div class="rules-card">
+    <!-- Rules — with id for scroll anchor -->
+    <div class="rules-card" id="rulesSection">
       <div class="rules-header">
         <div class="rules-icon-wrap">📋</div>
         <div class="rules-title">
@@ -385,56 +420,26 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
           <p>يُرجى القراءة والالتزام التام قبل التسجيل</p>
         </div>
       </div>
-
       <div class="rules-intro">
         شقة سيدي بشر هي مكان للراحة والاسترخاء وقضاء وقت ممتع في أجواء محترمة تليق بشهر رمضان المبارك. نطلب من جميع الرواد الالتزام بهذه القواعد حفاظاً على المكان وعلى بعضنا البعض.
       </div>
-
       <div class="rules-grid">
-        <div class="rule-item">
-          <div class="rule-num">١</div>
-          <div class="rule-text"><strong>احترام المكان</strong>الحفاظ على نظافة الشقة وترتيبها في كل الأوقات، وإعادة كل شيء لمكانه بعد الاستخدام.</div>
-        </div>
-        <div class="rule-item">
-          <div class="rule-num">٢</div>
-          <div class="rule-text"><strong>عدم إتلاف الممتلكات</strong>أي ضرر يلحق بالأثاث أو الأجهزة أو الجدران يكون صاحبه مسؤولاً عن التعويض الكامل.</div>
-        </div>
-        <div class="rule-item">
-          <div class="rule-num">٣</div>
-          <div class="rule-text"><strong>الهدوء واحترام الجيران</strong>عدم رفع الأصوات أو الضوضاء خاصة في أوقات الراحة والنوم والسحور.</div>
-        </div>
-        <div class="rule-item">
-          <div class="rule-num">٤</div>
-          <div class="rule-text"><strong>لا للمرح المفرط المؤذي</strong>الاستمتاع المحترم مسموح، أما كل ما يؤدي إلى تلف أو إزعاج فهو ممنوع منعاً باتاً.</div>
-        </div>
-        <div class="rule-item">
-          <div class="rule-num">٥</div>
-          <div class="rule-text"><strong>المسؤولية الشخصية</strong>كل رائد مسؤول عن تصرفاته وتصرفات من أحضرهم معه داخل الشقة.</div>
-        </div>
-        <div class="rule-item">
-          <div class="rule-num">٦</div>
-          <div class="rule-text"><strong>التعامل باحترام</strong>التعامل بأدب واحترام مع جميع الرواد وإدارة الشقة في كل الأوقات.</div>
-        </div>
-        <div class="rule-item">
-          <div class="rule-num">٧</div>
-          <div class="rule-text"><strong>الإبلاغ عن الأعطال</strong>في حالة حدوث أي عطل أو مشكلة، يُبلَّغ وكيل الشقة ستيفن فوراً.</div>
-        </div>
-        <div class="rule-item">
-          <div class="rule-num">٨</div>
-          <div class="rule-text"><strong>احترام خصوصية الآخرين</strong>عدم التصوير داخل الشقة أو نشر أي محتوى يخص الرواد دون إذن صريح.</div>
-        </div>
+        <div class="rule-item"><div class="rule-num">١</div><div class="rule-text"><strong>احترام المكان</strong>الحفاظ على نظافة الشقة وترتيبها في كل الأوقات، وإعادة كل شيء لمكانه بعد الاستخدام.</div></div>
+        <div class="rule-item"><div class="rule-num">٢</div><div class="rule-text"><strong>عدم إتلاف الممتلكات</strong>أي ضرر يلحق بالأثاث أو الأجهزة أو الجدران يكون صاحبه مسؤولاً عن التعويض الكامل.</div></div>
+        <div class="rule-item"><div class="rule-num">٣</div><div class="rule-text"><strong>الهدوء واحترام الجيران</strong>عدم رفع الأصوات أو الضوضاء خاصة في أوقات الراحة والنوم والسحور.</div></div>
+        <div class="rule-item"><div class="rule-num">٤</div><div class="rule-text"><strong>لا للمرح المفرط المؤذي</strong>الاستمتاع المحترم مسموح، أما كل ما يؤدي إلى تلف أو إزعاج فهو ممنوع منعاً باتاً.</div></div>
+        <div class="rule-item"><div class="rule-num">٥</div><div class="rule-text"><strong>المسؤولية الشخصية</strong>كل رائد مسؤول عن تصرفاته وتصرفات من أحضرهم معه داخل الشقة.</div></div>
+        <div class="rule-item"><div class="rule-num">٦</div><div class="rule-text"><strong>التعامل باحترام</strong>التعامل بأدب واحترام مع جميع الرواد وإدارة الشقة في كل الأوقات.</div></div>
+        <div class="rule-item"><div class="rule-num">٧</div><div class="rule-text"><strong>الإبلاغ عن الأعطال</strong>في حالة حدوث أي عطل أو مشكلة، يُبلَّغ وكيل الشقة ستيفن فوراً.</div></div>
+        <div class="rule-item"><div class="rule-num">٨</div><div class="rule-text"><strong>احترام خصوصية الآخرين</strong>عدم التصوير داخل الشقة أو نشر أي محتوى يخص الرواد دون إذن صريح.</div></div>
       </div>
-
-      <div class="rules-warning">
-        <span>⚠️</span>
-        مخالفة هذه القواعد تعني الإخراج الفوري من الشقة دون استرداد المبلغ المدفوع
-      </div>
+      <div class="rules-warning"><span>⚠️</span> مخالفة هذه القواعد تعني الإخراج الفوري من الشقة دون استرداد المبلغ المدفوع</div>
     </div>
 
-    <!-- FORM -->
+    <!-- Form -->
     <div class="form-card">
       <div class="form-title">📋 نموذج التسجيل</div>
-      <p class="form-subtitle">يُرجى تعبئة الكرش بنجاح</p>
+      <p class="form-subtitle">يُرجى تعبئة البيانات التالية للتسجيل في شقة سيدي بشر ١٤٤٧ هـ</p>
 
       <form id="regForm" novalidate>
         <div class="form-group">
@@ -469,18 +474,34 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
             </label>
           </div>
           <span class="error-msg" id="payErr">من فضلك اختر طريقة الدفع</span>
+
+          <!-- EDIT 1: Instapay info with direct payment link -->
           <div class="instapay-info" id="instapayInfo">
-            💳 يُرجى التحويل على حساب إنستاباي:<br>
-            <span class="instapay-account">rayyan-nabil@instapay</span><br>
-            <small style="color:rgba(253,246,227,.5);font-size:.75rem;">اذكر اسمك في ملاحظة التحويل</small>
+            <div style="margin-bottom:8px;">💳 الدفع عبر إنستاباي على الحساب:</div>
+            <div style="margin-bottom:4px;"><span class="instapay-account">rayyan-nabil@instapay</span></div>
+            <a href="https://ipn.eg/S/rayyan-nabil/instapay/6KWP5O" target="_blank" class="instapay-pay-btn">
+              <span>💳</span> ادفع الآن عبر إنستاباي
+            </a>
+
+            <!-- EDIT 2: Bold name-in-notes reminder + checkbox -->
+            <div class="name-note-box visible" style="margin-top:14px;">
+              <div class="name-note-text">
+                ⚠️ تأكد من كتابة اسمك في خانة الملاحظات عند الدفع<br>
+                <strong>✍️ اكتب اسمك في ملاحظة التحويل</strong>
+              </div>
+              <div class="name-confirm-row">
+                <input type="checkbox" id="nameNoteConfirm">
+                <label for="nameNoteConfirm">✅ نعم، سأكتب اسمي في ملاحظة التحويل</label>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Agree to rules -->
+        <!-- EDIT 3: Rules link in checkbox scrolls to rules section -->
         <div class="form-group">
           <div class="agree-row">
             <input type="checkbox" id="agreeRules">
-            <label for="agreeRules">أقر بأنني قرأت <strong>قواعد وآداب الشقة</strong> كاملةً وأوافق على الالتزام بها، وأتحمل المسؤولية الكاملة عن أي مخالفة.</label>
+            <label for="agreeRules">أقر بأنني قرأت <span class="rules-link" onclick="scrollToRules()">قواعد وآداب الشقة</span> كاملةً وأوافق على الالتزام بها، وأتحمل المسؤولية الكاملة عن أي مخالفة.</label>
           </div>
           <span class="error-msg" id="agreeErr">يجب الموافقة على القواعد للمتابعة</span>
         </div>
@@ -493,8 +514,17 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
       <div class="success-msg" id="successMsg">
         <div class="check">✅</div>
         <h3>تم التسجيل بنجاح!</h3>
-        <p>شكراً لتسجيلكم في شقة سيدي بشر<br>رمضان مبارك وعساكم من عواده 🌙<br>
-        <span style="color:var(--gold);font-size:.82rem;">تم حفظ بياناتكم تلقائياً</span></p>
+        <p>شكراً لتسجيلكم في شقة سيدي بشر<br>رمضان مبارك وعساكم من عواده 🌙</p>
+        <div style="margin-top:16px;padding:16px 18px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.35);border-radius:14px;text-align:right;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span style="font-size:1.6rem;">📲</span>
+            <span style="font-size:1rem;font-weight:800;color:#4ade80;">سيتم التواصل معكم قريباً</span>
+          </div>
+          <p style="font-size:.88rem;color:rgba(253,246,227,.8);line-height:1.7;margin:0;">
+            سنقوم بإضافتكم إلى <strong style="color:#4ade80;">مجموعة الواتساب</strong> الخاصة بشقة سيدي بشر<br>
+            وستصلكم جميع التفاصيل والتحديثات عبر المجموعة 🏠
+          </p>
+        </div>
         <button class="reset-btn" onclick="resetForm()">تسجيل شخص آخر</button>
       </div>
     </div>
@@ -506,19 +536,40 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
       <p class="section-sub">تحت إشراف كريم من</p>
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-avatar">👨‍💻</div>
+          <div class="team-avatar">
+            <!-- استبدل src بمسار صورة ريان: src="rayyan.jpg" -->
+            <img src="rayyan.png" alt="ريان نبيل" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="avatar-placeholder" style="display:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              <span>PHOTO</span>
+            </div>
+          </div>
           <div class="team-name">ريان نبيل</div>
           <div class="team-role">الشريك المؤسس وعضو مجلس الإدارة<br>مسؤول البرمجيات وأعمال السوفت وير</div>
           <span class="team-badge">Co-Founder & CTO</span>
         </div>
         <div class="team-card">
-          <div class="team-avatar">⚖️</div>
+          <div class="team-avatar">
+            <!-- استبدل src بمسار صورة يوسف: src="yousef.jpg" -->
+            <img src="youssef.jpeg" alt="يوسف عيد" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="avatar-placeholder" style="display:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              <span>PHOTO</span>
+            </div>
+          </div>
           <div class="team-name">يوسف عيد</div>
           <div class="team-role">مستشار الشؤون القانونية لشقة سيدي بشر<br>عضو مجلس الإدارة والشريك المؤسس</div>
           <span class="team-badge">Legal Advisor & Co-Founder</span>
         </div>
         <div class="team-card">
-          <div class="team-avatar">🤝</div>
+          <div class="team-avatar">
+            <!-- استبدل src بمسار صورة ستيفن: src="steven.jpg" -->
+            <img src="steven.jpeg" alt="ستيفن" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="avatar-placeholder" style="display:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              <span>PHOTO</span>
+            </div>
+          </div>
           <div class="team-name">ستيفن</div>
           <div class="team-role">وكيل الشقة لشؤون الرواد</div>
           <span class="team-badge">Residents Affairs Agent</span>
@@ -530,18 +581,16 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
   </div>
 
   <footer>
-    <!-- Hidden admin trigger — triple-click the copyright text -->
     <p class="footer-gold">شقة سيدي بشر ✦ الإسكندرية</p>
     <p style="margin-top:5px;">رمضان مبارك ١٤٤٧ هـ — ٢٠٢٦ م</p>
     <p id="adminTrigger" style="margin-top:4px;font-size:.75rem;opacity:.4;cursor:default;user-select:none;" ondblclick="openTokenPrompt()">
       جميع الحقوق محفوظة © ريان نبيل، يوسف عيد، ستيفن
     </p>
   </footer>
-
-</div><!-- /page-wrap -->
+</div>
 
 <script>
-/* ── STARS ── */
+/* Stars */
 const starsEl = document.getElementById('starsEl');
 for (let i = 0; i < 80; i++) {
   const s = document.createElement('div');
@@ -551,14 +600,19 @@ for (let i = 0; i < 80; i++) {
   starsEl.appendChild(s);
 }
 
-/* ── INSTAPAY TOGGLE ── */
+/* Instapay toggle */
 document.querySelectorAll('input[name="payment"]').forEach(r =>
   r.addEventListener('change', () =>
     document.getElementById('instapayInfo').classList.toggle('visible', r.value === 'إنستاباي' && r.checked)
   )
 );
 
-/* ── FORM SUBMIT ── */
+/* EDIT 3: Scroll to rules section smoothly */
+window.scrollToRules = () => {
+  document.getElementById('rulesSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+/* Form submit */
 document.getElementById('regForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   let ok = true;
@@ -610,7 +664,7 @@ window.resetForm = () => {
   btn.innerHTML = '✦ تسجيل الآن ✦';
 };
 
-/* ── ADMIN ── */
+/* Admin */
 let adminToken = '';
 let adminRecords = [];
 
@@ -626,23 +680,14 @@ window.closeTokenPrompt = () => {
 window.submitToken = async () => {
   const t = document.getElementById('tokenInput').value.trim();
   if (!t) return;
-  // Test the token against the API
   const res = await fetch('/api/admin', { headers: { 'x-admin-token': t } });
-  if (res.status === 401) {
-    document.getElementById('tokenError').style.display = 'block';
-    return;
-  }
+  if (res.status === 401) { document.getElementById('tokenError').style.display = 'block'; return; }
   adminToken = t;
   closeTokenPrompt();
   document.getElementById('adminPanel').style.display = 'block';
   loadAdmin();
 };
-
-window.closeAdmin = () => {
-  document.getElementById('adminPanel').style.display = 'none';
-  adminToken = '';
-};
-
+window.closeAdmin = () => { document.getElementById('adminPanel').style.display = 'none'; adminToken = ''; };
 window.loadAdmin = async () => {
   document.getElementById('adminContent').innerHTML = '<div class="admin-loading">جارٍ التحميل...</div>';
   try {
@@ -650,56 +695,30 @@ window.loadAdmin = async () => {
     const data = await res.json();
     adminRecords = data.records || [];
     renderAdmin(adminRecords);
-  } catch {
-    document.getElementById('adminContent').innerHTML = '<div class="admin-empty">حدث خطأ في جلب البيانات</div>';
-  }
+  } catch { document.getElementById('adminContent').innerHTML = '<div class="admin-empty">حدث خطأ في جلب البيانات</div>'; }
 };
-
 function renderAdmin(records) {
   const cash  = records.filter(r => r.payment === 'كاش').length;
   const insta = records.filter(r => r.payment === 'إنستاباي').length;
   document.getElementById('statTotal').textContent = records.length;
   document.getElementById('statCash').textContent  = cash;
   document.getElementById('statInsta').textContent = insta;
-
-  if (!records.length) {
-    document.getElementById('adminContent').innerHTML = '<div class="admin-empty">لا يوجد مسجلون بعد</div>';
-    return;
-  }
-
-  let rows = records.map((r, i) => `
-    <tr>
-      <td>${i + 1}</td>
-      <td>${r.name}</td>
-      <td style="direction:ltr">${r.phone}</td>
-      <td><span class="${r.payment === 'كاش' ? 'badge-cash' : 'badge-insta'}">${r.payment}</span></td>
-      <td style="font-size:.8rem;opacity:.7">${r.timestamp}</td>
-    </tr>`).join('');
-
+  if (!records.length) { document.getElementById('adminContent').innerHTML = '<div class="admin-empty">لا يوجد مسجلون بعد</div>'; return; }
   document.getElementById('adminContent').innerHTML = `
     <table class="admin-table">
       <thead><tr><th>#</th><th>الاسم</th><th>الهاتف</th><th>الدفع</th><th>التاريخ</th></tr></thead>
-      <tbody>${rows}</tbody>
+      <tbody>${records.map((r,i)=>`<tr><td>${i+1}</td><td>${r.name}</td><td style="direction:ltr">${r.phone}</td><td><span class="${r.payment==='كاش'?'badge-cash':'badge-insta'}">${r.payment}</span></td><td style="font-size:.8rem;opacity:.7">${r.timestamp}</td></tr>`).join('')}</tbody>
     </table>`;
 }
-
 window.downloadExcel = () => {
   if (!adminRecords.length) { alert('لا توجد بيانات للتحميل'); return; }
-
-  // Build CSV with BOM for Arabic Excel support
-  const headers = ['#', 'الاسم', 'الهاتف', 'طريقة الدفع', 'التاريخ والوقت'];
-  const rows = adminRecords.map((r, i) =>
-    [i+1, r.name, r.phone, r.payment, r.timestamp]
-      .map(v => `"${String(v).replace(/"/g,'""')}"`)
-      .join(',')
-  );
+  const headers = ['#','الاسم','الهاتف','طريقة الدفع','التاريخ والوقت'];
+  const rows = adminRecords.map((r,i)=>[i+1,r.name,r.phone,r.payment,r.timestamp].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(','));
   const csv = '\uFEFF' + headers.join(',') + '\n' + rows.join('\n');
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href     = url;
-  a.download = `سجل_شقة_سيدي_بشر_${new Date().toISOString().slice(0,10)}.csv`;
-  a.click();
+  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `سجل_شقة_سيدي_بشر_${new Date().toISOString().slice(0,10)}.csv`; a.click();
   URL.revokeObjectURL(url);
 };
 </script>
