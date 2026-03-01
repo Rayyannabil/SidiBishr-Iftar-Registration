@@ -1,4 +1,9 @@
-const { kv } = require("@vercel/kv");
+const { Redis } = require("@upstash/redis");
+
+const redis = new Redis({
+  url: process.env.KV_REST_API_URL,
+  token: process.env.KV_REST_API_TOKEN,
+});
 
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -19,7 +24,7 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const id = `reg:${Date.now()}`;
+    const id = "reg:" + Date.now();
     const record = {
       id,
       name,
@@ -28,15 +33,12 @@ module.exports = async function handler(req, res) {
       timestamp: new Date().toLocaleString("ar-EG", {
         timeZone: "Africa/Cairo",
         year: "numeric", month: "2-digit", day: "2-digit",
-        hour: "2-digit", minute: "2-digit", second: "2-digit"
-      })
+        hour: "2-digit", minute: "2-digit", second: "2-digit",
+      }),
     };
 
-    // Save individual record
-    await kv.set(id, JSON.stringify(record));
-
-    // Add to sorted index list
-    await kv.lpush("registrations", id);
+    await redis.set(id, JSON.stringify(record));
+    await redis.lpush("registrations", id);
 
     return res.status(200).json({ success: true });
   } catch (err) {
