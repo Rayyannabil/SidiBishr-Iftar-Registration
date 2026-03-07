@@ -76,19 +76,6 @@ header { text-align:center; padding:50px 20px 0; }
 .meal-note { background:rgba(26,107,107,.2); border:1px solid rgba(26,107,107,.4); border-radius:10px; padding:10px 16px; font-size:.85rem; color:rgba(253,246,227,.75); text-align:center; }
 .meal-note strong { color:var(--gold-light); }
 
-/* ── INSTAPAY BUTTON ── */
-.instapay-btn {
-  display:inline-flex; align-items:center; gap:10px;
-  background:linear-gradient(135deg,#0a5c44,#0e8a64);
-  color:white; font-family:'Cairo',sans-serif; font-size:1rem; font-weight:700;
-  padding:13px 28px; border-radius:50px; border:none; cursor:pointer;
-  text-decoration:none; margin-top:14px;
-  box-shadow:0 4px 20px rgba(10,92,68,.4);
-  transition:all .3s;
-}
-.instapay-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(10,92,68,.6); }
-.instapay-btn-icon { font-size:1.3rem; }
-
 /* ── RULES ── */
 .rules-card { background:linear-gradient(135deg,rgba(192,57,43,.1),rgba(139,105,20,.08)); border:1px solid rgba(192,57,43,.35); border-radius:22px; padding:32px 28px; margin-bottom:28px; }
 .rules-header { display:flex; align-items:center; gap:14px; margin-bottom:22px; }
@@ -105,92 +92,90 @@ header { text-align:center; padding:50px 20px 0; }
 .rules-warning { background:rgba(192,57,43,.12); border:1px solid rgba(192,57,43,.5); border-radius:12px; padding:14px 18px; text-align:center; font-size:.9rem; color:#F1948A; font-weight:600; }
 .rules-warning span { font-size:1.3rem; vertical-align:middle; margin-left:6px; }
 
-/* ── FORM ── */
-.form-card { background:rgba(255,255,255,.03); border:1px solid rgba(201,168,76,.25); border-radius:22px; padding:38px 32px; backdrop-filter:blur(15px); box-shadow:0 20px 60px rgba(0,0,0,.4); margin-bottom:35px; }
-.form-title { font-size:1.5rem; font-weight:700; color:var(--gold); margin-bottom:5px; display:flex; align-items:center; gap:12px; }
-.form-title::after { content:''; flex:1; height:1px; background:linear-gradient(to left,transparent,var(--gold-dark)); }
-.form-subtitle { color:rgba(253,246,227,.55); font-size:.9rem; margin-bottom:26px; }
-.form-group { margin-bottom:22px; }
-label { display:block; font-size:.92rem; font-weight:600; color:var(--gold-light); margin-bottom:7px; }
-input[type=text] { width:100%; padding:13px 17px; background:rgba(255,255,255,.05); border:1.5px solid rgba(201,168,76,.3); border-radius:11px; color:var(--cream); font-family:'Cairo',sans-serif; font-size:1rem; transition:all .3s; outline:none; direction:rtl; }
-input[type=text]:focus { border-color:var(--gold); background:rgba(201,168,76,.08); box-shadow:0 0 0 4px rgba(201,168,76,.1); }
-input[type=text]::placeholder { color:rgba(253,246,227,.3); }
-
-.payment-options { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
-.payment-option { position:relative; cursor:pointer; }
-.payment-option input[type=radio] { position:absolute; opacity:0; width:0; }
-.payment-label { display:flex; flex-direction:column; align-items:center; gap:9px; padding:18px 13px; background:rgba(255,255,255,.04); border:2px solid rgba(201,168,76,.2); border-radius:13px; cursor:pointer; transition:all .3s; text-align:center; }
-.payment-option input:checked + .payment-label { background:rgba(201,168,76,.12); border-color:var(--gold); box-shadow:0 0 20px rgba(201,168,76,.2); }
-.payment-icon { font-size:2rem; }
-.payment-name { font-size:.95rem; font-weight:700; color:var(--cream); }
-.payment-detail { font-size:.75rem; color:rgba(253,246,227,.5); word-break:break-all; }
-
-/* ── INSTAPAY INFO BOX (updated) ── */
-.instapay-info { margin-top:11px; padding:14px 16px; background:rgba(10,92,68,.2); border:1px solid rgba(10,150,100,.5); border-radius:12px; font-size:.88rem; color:rgba(253,246,227,.85); display:none; text-align:center; }
-.instapay-info.visible { display:block; }
-.instapay-account { font-weight:900; color:#4ade80; font-size:1.05rem; direction:ltr; display:inline-block; letter-spacing:.5px; }
-.instapay-pay-btn {
-  display:inline-flex; align-items:center; gap:8px;
-  background:linear-gradient(135deg,#0a5c44,#0e8a64);
-  color:white; font-family:'Cairo',sans-serif; font-size:.92rem; font-weight:700;
-  padding:10px 22px; border-radius:50px; text-decoration:none; margin-top:10px;
-  box-shadow:0 3px 14px rgba(10,92,68,.4); transition:all .3s; border:none; cursor:pointer;
+/* ── NEW YEAR CARD ── */
+.newyear-card {
+  background: linear-gradient(135deg, rgba(201,168,76,.12), rgba(26,107,107,.15), rgba(201,168,76,.08));
+  border: 1px solid rgba(201,168,76,.45);
+  border-radius: 28px;
+  padding: 50px 32px;
+  text-align: center;
+  margin-bottom: 35px;
+  position: relative;
+  overflow: hidden;
 }
-.instapay-pay-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(10,92,68,.6); }
-
-/* ── NAME NOTE CHECKBOX ── */
-.name-note-box {
-  margin-top:12px; padding:14px 16px;
-  background:rgba(201,168,76,.08); border:1.5px solid rgba(201,168,76,.4);
-  border-radius:11px; display:none;
+.newyear-card::before {
+  content: '🌙';
+  position: absolute;
+  top: -20px; left: -20px;
+  font-size: 9rem;
+  opacity: .04;
+  transform: rotate(-20deg);
 }
-.name-note-box.visible { display:block; }
-.name-note-text {
-  font-size:.9rem; color:var(--cream); line-height:1.6; margin-bottom:12px; text-align:center;
+.newyear-card::after {
+  content: '✨';
+  position: absolute;
+  bottom: -20px; right: -20px;
+  font-size: 8rem;
+  opacity: .04;
 }
-.name-note-text strong {
-  color:var(--gold-light); font-size:1rem; font-weight:900;
-  background:rgba(201,168,76,.15); padding:2px 10px; border-radius:6px;
-  display:inline-block; margin-top:4px;
+.newyear-icon { font-size: 4rem; margin-bottom: 18px; animation: pulse 2.5s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.12)} }
+.newyear-title {
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.3;
+  margin-bottom: 14px;
 }
-.name-confirm-row { display:flex; align-items:center; gap:10px; background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.3); border-radius:9px; padding:10px 13px; }
-.name-confirm-row input[type=checkbox] { width:20px; height:20px; accent-color:var(--gold); cursor:pointer; flex-shrink:0; }
-.name-confirm-row label { font-size:.85rem; color:rgba(253,246,227,.85); cursor:pointer; margin-bottom:0; font-weight:600; }
-
-/* ── AGREE ROW ── */
-.agree-row { display:flex; align-items:flex-start; gap:12px; background:rgba(192,57,43,.07); border:1px solid rgba(192,57,43,.25); border-radius:11px; padding:14px; }
-.agree-row input[type=checkbox] { width:20px; height:20px; margin-top:2px; accent-color:var(--gold); cursor:pointer; flex-shrink:0; }
-.agree-row label { font-size:.88rem; color:rgba(253,246,227,.82); cursor:pointer; line-height:1.5; margin-bottom:0; font-weight:400; }
-.agree-row label strong { color:#F1948A; }
-/* clickable rules link inside checkbox label */
-.rules-link {
-  color:var(--gold-light); font-weight:700; text-decoration:underline;
-  text-underline-offset:3px; cursor:pointer;
-  transition:color .2s;
+.newyear-sub {
+  font-size: 1.05rem;
+  color: rgba(253,246,227,.8);
+  line-height: 1.9;
+  margin-bottom: 26px;
 }
-.rules-link:hover { color:var(--gold); }
-
-.error-msg { display:none; color:#ff8080; font-size:.82rem; margin-top:5px; }
-.error-msg.visible { display:block; }
-
-.submit-btn { width:100%; padding:15px; background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light)); border:none; border-radius:13px; color:var(--deep); font-family:'Cairo',sans-serif; font-size:1.05rem; font-weight:800; cursor:pointer; transition:all .3s; position:relative; overflow:hidden; margin-top:8px; }
-.submit-btn:disabled { opacity:.6; cursor:not-allowed; }
-.submit-btn::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%); transform:translateX(-100%); transition:transform .5s; }
-.submit-btn:not(:disabled):hover::before { transform:translateX(100%); }
-.submit-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(201,168,76,.4); }
-.spinner { display:inline-block; width:16px; height:16px; border:3px solid rgba(13,27,42,.3); border-top-color:var(--deep); border-radius:50%; animation:spin .8s linear infinite; vertical-align:middle; margin-left:7px; }
-@keyframes spin { to{transform:rotate(360deg)} }
-
-.success-msg { display:none; text-align:center; padding:32px 22px; background:rgba(26,107,107,.15); border:1px solid rgba(26,107,107,.5); border-radius:15px; margin-top:18px; }
-.success-msg.visible { display:block; }
-.success-msg .check { font-size:3.2rem; margin-bottom:10px; }
-.success-msg h3 { color:var(--gold-light); font-size:1.3rem; margin-bottom:7px; }
-.success-msg p { color:rgba(253,246,227,.75); font-size:.9rem; line-height:1.7; }
-.reset-btn { margin-top:15px; padding:9px 26px; background:transparent; border:1.5px solid var(--gold); border-radius:50px; color:var(--gold); font-family:'Cairo',sans-serif; font-size:.9rem; font-weight:600; cursor:pointer; transition:all .3s; }
-.reset-btn:hover { background:rgba(201,168,76,.1); }
-
-.api-error { display:none; background:rgba(180,30,30,.15); border:1px solid rgba(220,80,80,.4); border-radius:10px; padding:11px 15px; color:#ff9999; font-size:.88rem; text-align:center; margin-top:12px; }
-.api-error.visible { display:block; }
+.newyear-sub strong { color: var(--gold-light); }
+.newyear-year-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: var(--deep);
+  font-weight: 900;
+  font-size: 1.25rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  box-shadow: 0 6px 28px rgba(201,168,76,.4);
+  margin-bottom: 26px;
+  animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%,100%{box-shadow:0 6px 28px rgba(201,168,76,.4)}
+  50%{box-shadow:0 8px 40px rgba(201,168,76,.7)}
+}
+.newyear-divider {
+  display: flex; align-items: center; gap: 14px;
+  margin: 22px auto;
+  max-width: 400px;
+}
+.newyear-divider-line { flex:1; height:1px; background:linear-gradient(to right,transparent,rgba(201,168,76,.5),transparent); }
+.newyear-divider-icon { color: var(--gold); font-size: 1.1rem; }
+.newyear-wait {
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  font-weight: 700;
+  line-height: 1.8;
+}
+.newyear-wait span { color: var(--cream); font-weight: 400; }
+.fireworks { display:flex; justify-content:center; gap:18px; margin-top:26px; font-size:1.8rem; }
+.fw1 { animation: fw 1.6s ease-in-out infinite; }
+.fw2 { animation: fw 1.6s ease-in-out infinite .3s; }
+.fw3 { animation: fw 1.6s ease-in-out infinite .6s; }
+.fw4 { animation: fw 1.6s ease-in-out infinite .9s; }
+.fw5 { animation: fw 1.6s ease-in-out infinite 1.2s; }
+@keyframes fw { 0%,100%{transform:translateY(0) scale(1);opacity:.6} 50%{transform:translateY(-12px) scale(1.2);opacity:1} }
 
 .section-heading { text-align:center; font-size:1.35rem; font-weight:700; color:var(--gold); margin-bottom:5px; }
 .section-sub { text-align:center; color:rgba(253,246,227,.5); font-size:.88rem; margin-bottom:22px; }
@@ -246,12 +231,12 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
 .token-cancel { background:none; border:none; color:rgba(253,246,227,.4); font-family:'Cairo',sans-serif; font-size:.85rem; cursor:pointer; margin-top:10px; }
 
 @media(max-width:600px) {
-  .payment-options { grid-template-columns:1fr; }
-  .form-card,.meal-card,.rules-card { padding:22px 16px; }
+  .meal-card,.rules-card { padding:22px 16px; }
   .rules-grid { grid-template-columns:1fr; }
   .meal-items { grid-template-columns:repeat(3,1fr); }
   .moon-lantern { gap:14px; }
   .crescent { font-size:42px; }
+  .newyear-card { padding:36px 18px; }
 }
 </style>
 </head>
@@ -411,7 +396,7 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
       <div class="meal-note">🌙 <strong>ملاحظة:</strong> السعر يشمل الوجبة الكاملة + إنترنت مجاني على مدار اليوم</div>
     </div>
 
-    <!-- Rules — with id for scroll anchor -->
+    <!-- Rules -->
     <div class="rules-card" id="rulesSection">
       <div class="rules-header">
         <div class="rules-icon-wrap">📋</div>
@@ -436,96 +421,33 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
       <div class="rules-warning"><span>⚠️</span> مخالفة هذه القواعد تعني الإخراج الفوري من الشقة دون استرداد المبلغ المدفوع</div>
     </div>
 
-    <!-- Form -->
-    <div class="form-card">
-      <div class="form-title">📋 نموذج التسجيل</div>
-      <p class="form-subtitle">يُرجى تعبئة الكرش بنجاح</p>
-
-      <form id="regForm" novalidate>
-        <div class="form-group">
-          <label for="fullName">الاسم الكامل ✦</label>
-          <input type="text" id="fullName" placeholder="أدخل اسمك الكامل هنا..." required>
-          <span class="error-msg" id="nameErr">من فضلك أدخل اسمك الكامل</span>
-        </div>
-
-        <div class="form-group">
-          <label for="phone">رقم الهاتف (اختياري)</label>
-          <input type="text" id="phone" placeholder="٠١٠xxxxxxxx">
-        </div>
-
-        <div class="form-group">
-          <label>طريقة الدفع ✦</label>
-          <div class="payment-options">
-            <label class="payment-option">
-              <input type="radio" name="payment" value="كاش">
-              <div class="payment-label">
-                <span class="payment-icon">💵</span>
-                <span class="payment-name">كاش</span>
-                <span class="payment-detail">دفع نقدي مباشر</span>
-              </div>
-            </label>
-            <label class="payment-option">
-              <input type="radio" name="payment" value="إنستاباي">
-              <div class="payment-label">
-                <span class="payment-icon">📱</span>
-                <span class="payment-name">إنستاباي</span>
-                <span class="payment-detail">تحويل إلكتروني</span>
-              </div>
-            </label>
-          </div>
-          <span class="error-msg" id="payErr">من فضلك اختر طريقة الدفع</span>
-
-          <!-- EDIT 1: Instapay info with direct payment link -->
-          <div class="instapay-info" id="instapayInfo">
-            <div style="margin-bottom:8px;">💳 الدفع عبر إنستاباي على الحساب:</div>
-            <div style="margin-bottom:4px;"><span class="instapay-account">rayyan-nabil@instapay</span></div>
-            <a href="https://ipn.eg/S/rayyan-nabil/instapay/6KWP5O" target="_blank" class="instapay-pay-btn">
-              <span>💳</span> ادفع الآن عبر إنستاباي
-            </a>
-
-            <!-- EDIT 2: Bold name-in-notes reminder + checkbox -->
-            <div class="name-note-box visible" style="margin-top:14px;">
-              <div class="name-note-text">
-                ⚠️ تأكد من كتابة اسمك في خانة الملاحظات عند الدفع<br>
-                <strong>✍️ اكتب اسمك في ملاحظة التحويل</strong>
-              </div>
-              <div class="name-confirm-row">
-                <input type="checkbox" id="nameNoteConfirm">
-                <label for="nameNoteConfirm">✅ نعم، سأكتب اسمي في ملاحظة التحويل</label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- EDIT 3: Rules link in checkbox scrolls to rules section -->
-        <div class="form-group">
-          <div class="agree-row">
-            <input type="checkbox" id="agreeRules">
-            <label for="agreeRules">أقر بأنني قرأت <span class="rules-link" onclick="scrollToRules()">قواعد وآداب الشقة</span> كاملةً وأوافق على الالتزام بها، وأتحمل المسؤولية الكاملة عن أي مخالفة.</label>
-          </div>
-          <span class="error-msg" id="agreeErr">يجب الموافقة على القواعد للمتابعة</span>
-        </div>
-
-        <button type="submit" class="submit-btn" id="submitBtn">✦ تسجيل الآن ✦</button>
-      </form>
-
-      <div class="api-error" id="apiError"></div>
-
-      <div class="success-msg" id="successMsg">
-        <div class="check">✅</div>
-        <h3>تم التسجيل بنجاح!</h3>
-        <p>شكراً لتسجيلكم في شقة سيدي بشر<br>رمضان مبارك وعساكم من عواده 🌙</p>
-        <div style="margin-top:16px;padding:16px 18px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.35);border-radius:14px;text-align:right;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-            <span style="font-size:1.6rem;">📲</span>
-            <span style="font-size:1rem;font-weight:800;color:#4ade80;">سيتم التواصل معكم قريباً</span>
-          </div>
-          <p style="font-size:.88rem;color:rgba(253,246,227,.8);line-height:1.7;margin:0;">
-            سنقوم بإضافتكم إلى <strong style="color:#4ade80;">مجموعة الواتساب</strong> الخاصة بشقة سيدي بشر<br>
-            وستصلكم جميع التفاصيل والتحديثات عبر المجموعة 🏠
-          </p>
-        </div>
-        <button class="reset-btn" onclick="resetForm()">تسجيل شخص آخر</button>
+    <!-- New Year Message — replaces registration form -->
+    <div class="newyear-card">
+      <div class="newyear-icon">🌙</div>
+      <div class="newyear-title">كل عام وأنتم بخير<br>بمناسبة الشهر الفضيل</div>
+      <div class="newyear-sub">
+        نرحب بجميع رواد شقة سيدي بشر <br>
+        في إفطارنا الرمضاني لعام <strong>١٤٤٧ هـ</strong><br>
+        نتمنى قضاء يوم سعيد بصحبتكم 
+      </div>
+      <div class="newyear-divider">
+        <div class="newyear-divider-line"></div>
+        <span class="newyear-divider-icon">✦ ❖ ✦</span>
+        <div class="newyear-divider-line"></div>
+      </div>
+      <div class="newyear-year-badge">
+        🗓️ في انتظاركم إفطار ١٤٤٨ هـ
+      </div>
+      <div class="newyear-wait">
+        نراكم في العام القادم بإذن الله 🕌<br>
+        <span>ابقوا على تواصل مع الفريق لمعرفة التفاصيل</span>
+      </div>
+      <div class="fireworks">
+        <span class="fw1">🎆</span>
+        <span class="fw2">⭐</span>
+        <span class="fw3">🌟</span>
+        <span class="fw4">⭐</span>
+        <span class="fw5">🎆</span>
       </div>
     </div>
 
@@ -537,7 +459,6 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
       <div class="team-grid">
         <div class="team-card">
           <div class="team-avatar">
-            <!-- استبدل src بمسار صورة ريان: src="rayyan.jpg" -->
             <img src="rayyan.png" alt="ريان نبيل" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="avatar-placeholder" style="display:none">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -550,7 +471,6 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
         </div>
         <div class="team-card">
           <div class="team-avatar">
-            <!-- استبدل src بمسار صورة يوسف: src="yousef.jpg" -->
             <img src="youssef.jpeg" alt="يوسف عيد" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="avatar-placeholder" style="display:none">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -563,7 +483,6 @@ footer .footer-gold { color:var(--gold); font-weight:600; }
         </div>
         <div class="team-card">
           <div class="team-avatar">
-            <!-- استبدل src بمسار صورة ستيفن: src="steven.jpg" -->
             <img src="steven.jpeg" alt="ستيفن" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="avatar-placeholder" style="display:none">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -599,70 +518,6 @@ for (let i = 0; i < 80; i++) {
   s.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${Math.random()*3+2}s;--dl:-${Math.random()*4}s`;
   starsEl.appendChild(s);
 }
-
-/* Instapay toggle */
-document.querySelectorAll('input[name="payment"]').forEach(r =>
-  r.addEventListener('change', () =>
-    document.getElementById('instapayInfo').classList.toggle('visible', r.value === 'إنستاباي' && r.checked)
-  )
-);
-
-/* EDIT 3: Scroll to rules section smoothly */
-window.scrollToRules = () => {
-  document.getElementById('rulesSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-};
-
-/* Form submit */
-document.getElementById('regForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  let ok = true;
-
-  const name    = document.getElementById('fullName').value.trim();
-  const phone   = document.getElementById('phone').value.trim();
-  const payment = document.querySelector('input[name="payment"]:checked');
-  const agreed  = document.getElementById('agreeRules').checked;
-
-  ['nameErr','payErr','agreeErr'].forEach(id => document.getElementById(id).classList.remove('visible'));
-  document.getElementById('apiError').classList.remove('visible');
-
-  if (!name)    { document.getElementById('nameErr').classList.add('visible');  ok = false; }
-  if (!payment) { document.getElementById('payErr').classList.add('visible');   ok = false; }
-  if (!agreed)  { document.getElementById('agreeErr').classList.add('visible'); ok = false; }
-  if (!ok) return;
-
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.innerHTML = 'جارٍ الحفظ... <span class="spinner"></span>';
-
-  try {
-    const res = await fetch('/api/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, phone, payment: payment.value })
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'خطأ غير متوقع');
-    document.getElementById('regForm').style.display = 'none';
-    document.getElementById('successMsg').classList.add('visible');
-  } catch (err) {
-    const el = document.getElementById('apiError');
-    el.textContent = '⚠️ ' + err.message;
-    el.classList.add('visible');
-    btn.disabled = false;
-    btn.innerHTML = '✦ تسجيل الآن ✦';
-  }
-});
-
-window.resetForm = () => {
-  document.getElementById('regForm').reset();
-  document.getElementById('regForm').style.display = 'block';
-  document.getElementById('successMsg').classList.remove('visible');
-  document.getElementById('instapayInfo').classList.remove('visible');
-  document.getElementById('apiError').classList.remove('visible');
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = false;
-  btn.innerHTML = '✦ تسجيل الآن ✦';
-};
 
 /* Admin */
 let adminToken = '';
